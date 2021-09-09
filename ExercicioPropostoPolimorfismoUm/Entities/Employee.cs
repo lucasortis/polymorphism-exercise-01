@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 
 namespace ExercicioPropostoPolimorfismoUm.Entities
 {
@@ -22,6 +19,19 @@ namespace ExercicioPropostoPolimorfismoUm.Entities
             Name = name;
             Hours = hours;
             ValuePerHour = valuePerHour;
+        }
+
+        public virtual double Payment()
+        {
+            return Hours * ValuePerHour;
+        }
+
+        public override string ToString()
+        {
+            return Name
+                + " - "
+                + "$ "
+                + Payment().ToString("F2", CultureInfo.InvariantCulture);
         }
     }
 }
